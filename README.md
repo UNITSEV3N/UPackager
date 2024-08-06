@@ -2,7 +2,7 @@
 
 ## NOTE!
 
-This is a simple tool, not much tought was put into the code and its features. Just made to get a simple task dont as quick as possible.
+This is a simple tool, not much tought was put into the code and its features. Just made to get a simple task done quick as possible.
 
 This only packs content for Unreal Engine Example below.
 
