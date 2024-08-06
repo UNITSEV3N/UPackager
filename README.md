@@ -1,4 +1,4 @@
-# UPacker Application
+# UPackager Application
 
 ## NOTE!
 
