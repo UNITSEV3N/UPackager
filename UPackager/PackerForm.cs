@@ -62,6 +62,9 @@ namespace UPackager
             {
                 if (!string.IsNullOrEmpty(EnginePath) && !string.IsNullOrEmpty(ContentPath))
                 {
+                    // string fileName = Path.GetFileName(file).Replace(' ', '_');
+                    // string destFile = Path.Combine(destinationDirectory, fileName);
+
                     // Set Values
                     EnginePath = TXTBOX_EnginePath.Text;
                     ContentPath = TXTBOX_ContentPath.Text;
@@ -76,8 +79,8 @@ namespace UPackager
                     packerCore.GenerateBatchFiles(DesktopPath, 
                         EnginePath, PackName);
                     packerCore.CopyFilesAndRootFolder(ContentPath, 
-                        $"{DesktopPath}\\{PackName}\\Samples\\{PackName}\\Content\\{PackName}\\", 
-                        CopyRoot);
+                        $"{DesktopPath}\\{PackName}\\Samples\\{PackName}\\Content\\", 
+                        CopyRoot, PackName);
 
                     packerCore.CopyImagesOver(DesktopPath, PackName, IconPath, PreviewPath);
 
@@ -234,17 +237,6 @@ namespace UPackager
             }
         }
 
-        private void CB_CopyRootFolder_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CB_CopyRootFolder.Checked == true)
-            {
-                CopyRoot = true;
-            }
-            else
-            {
-                CopyRoot = false;
-            }
-        }
         private void CB_CloseOnPack_CheckedChanged(object sender, EventArgs e)
         {
             if (CB_CloseOnPack.Checked == true)

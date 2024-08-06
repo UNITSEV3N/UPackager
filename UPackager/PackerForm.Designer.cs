@@ -57,7 +57,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.CB_AutoOpenStagingFolder = new System.Windows.Forms.CheckBox();
             this.CB_CloseOnPack = new System.Windows.Forms.CheckBox();
-            this.CB_CopyRootFolder = new System.Windows.Forms.CheckBox();
             this.CB_OnTop = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -338,7 +337,6 @@
             // 
             this.groupBox4.Controls.Add(this.CB_AutoOpenStagingFolder);
             this.groupBox4.Controls.Add(this.CB_CloseOnPack);
-            this.groupBox4.Controls.Add(this.CB_CopyRootFolder);
             this.groupBox4.Controls.Add(this.CB_OnTop);
             this.groupBox4.Location = new System.Drawing.Point(439, 12);
             this.groupBox4.Name = "groupBox4";
@@ -350,7 +348,7 @@
             // CB_AutoOpenStagingFolder
             // 
             this.CB_AutoOpenStagingFolder.AutoSize = true;
-            this.CB_AutoOpenStagingFolder.Location = new System.Drawing.Point(6, 86);
+            this.CB_AutoOpenStagingFolder.Location = new System.Drawing.Point(6, 63);
             this.CB_AutoOpenStagingFolder.Name = "CB_AutoOpenStagingFolder";
             this.CB_AutoOpenStagingFolder.Size = new System.Drawing.Size(148, 17);
             this.CB_AutoOpenStagingFolder.TabIndex = 3;
@@ -362,7 +360,7 @@
             // CB_CloseOnPack
             // 
             this.CB_CloseOnPack.AutoSize = true;
-            this.CB_CloseOnPack.Location = new System.Drawing.Point(6, 63);
+            this.CB_CloseOnPack.Location = new System.Drawing.Point(6, 40);
             this.CB_CloseOnPack.Name = "CB_CloseOnPack";
             this.CB_CloseOnPack.Size = new System.Drawing.Size(95, 17);
             this.CB_CloseOnPack.TabIndex = 2;
@@ -370,18 +368,6 @@
             this.CB_CloseOnPack.Text = "Close on Pack";
             this.CB_CloseOnPack.UseVisualStyleBackColor = true;
             this.CB_CloseOnPack.CheckedChanged += new System.EventHandler(this.CB_CloseOnPack_CheckedChanged);
-            // 
-            // CB_CopyRootFolder
-            // 
-            this.CB_CopyRootFolder.AutoSize = true;
-            this.CB_CopyRootFolder.Location = new System.Drawing.Point(6, 40);
-            this.CB_CopyRootFolder.Name = "CB_CopyRootFolder";
-            this.CB_CopyRootFolder.Size = new System.Drawing.Size(148, 17);
-            this.CB_CopyRootFolder.TabIndex = 1;
-            this.CB_CopyRootFolder.TabStop = false;
-            this.CB_CopyRootFolder.Text = "Copy Root Content Folder";
-            this.CB_CopyRootFolder.UseVisualStyleBackColor = true;
-            this.CB_CopyRootFolder.CheckedChanged += new System.EventHandler(this.CB_CopyRootFolder_CheckedChanged);
             // 
             // CB_OnTop
             // 
@@ -454,7 +440,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox CB_OnTop;
-        private System.Windows.Forms.CheckBox CB_CopyRootFolder;
         private System.Windows.Forms.CheckBox CB_CloseOnPack;
         private System.Windows.Forms.CheckBox CB_AutoOpenStagingFolder;
     }

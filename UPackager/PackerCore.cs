@@ -28,7 +28,7 @@ namespace UPackager
                     Directory.CreateDirectory($"{DesktopPath}\\{PackName}\\ContentSettings\\Config\\");
                     Directory.CreateDirectory($"{DesktopPath}\\{PackName}\\ContentSettings\\Media\\");
                     Directory.CreateDirectory($"{DesktopPath}\\{PackName}\\FeaturePacks\\");
-                    Directory.CreateDirectory($"{DesktopPath}\\{PackName}\\Samples\\{PackName}\\Content\\{PackName}\\");
+                    Directory.CreateDirectory($"{DesktopPath}\\{PackName}\\Samples\\{PackName}\\");
 
                     // Create Files
                     // -----------------------
@@ -111,59 +111,39 @@ namespace UPackager
             }
         }
 
-        public void CopyFilesAndRootFolder(string sourceDirectory, string destinationDirectory, bool CopyRoot)
+        public void CopyFilesAndRootFolder(string sourceDirectory, string destinationDirectory, bool CopyRoot, string PackName)
         {
             try
             {
-                if (CopyRoot)
+                // {DesktopPath}\\{PackName}\\Samples\\{PackName}\\Content\\{PackName}\\
+                string FinalPath = Path.GetFileName(PackName).Replace(" ", "_");
+                string FinalContentPath = Path.Combine(destinationDirectory, FinalPath);
+
+                if (!Directory.Exists(FinalContentPath))
                 {
                     // Create the destination directory if it doesn't exist
-                    Directory.CreateDirectory(destinationDirectory);
-
-                    // Get the name of the source folder
-                    string sourceFolderName = new DirectoryInfo(sourceDirectory).Name;
-
-                    // Create the root folder in the destination
-                    string destinationRoot = Path.Combine(destinationDirectory, sourceFolderName);
-                    Directory.CreateDirectory(destinationRoot);
-
-                    // Copy all files from the source to the destination root folder
-                    foreach (string file in Directory.GetFiles(sourceDirectory))
-                    {
-                        string fileName = Path.GetFileName(file);
-                        string destFile = Path.Combine(destinationRoot, fileName);
-                        File.Copy(file, destFile, true);
-                    }
+                    Directory.CreateDirectory(FinalContentPath);
                 }
 
-                else
+                // Copy all files from the source to the destination folder
+                foreach (string file in Directory.GetFiles(sourceDirectory))
                 {
-                    if (!Directory.Exists(destinationDirectory))
-                    {
-                        // Create the destination directory if it doesn't exist
-                        Directory.CreateDirectory(destinationDirectory);
-                    }
+                    string fileName = Path.GetFileName(file);
+                    string destFile = Path.Combine(FinalContentPath, fileName);
+                    File.Copy(file, destFile, true);
+                }
 
-                    // Copy all files from the source to the destination folder
-                    foreach (string file in Directory.GetFiles(sourceDirectory))
+                // Copy all subdirectories and their contents
+                foreach (string dir in Directory.GetDirectories(sourceDirectory, "*", SearchOption.AllDirectories))
+                {
+                    string dirToCreate = dir.Replace(sourceDirectory, FinalContentPath);
+                    Directory.CreateDirectory(dirToCreate);
+
+                    foreach (string file in Directory.GetFiles(dir))
                     {
                         string fileName = Path.GetFileName(file);
-                        string destFile = Path.Combine(destinationDirectory, fileName);
+                        string destFile = Path.Combine(dirToCreate, fileName);
                         File.Copy(file, destFile, true);
-                    }
-
-                    // Copy all subdirectories and their contents
-                    foreach (string dir in Directory.GetDirectories(sourceDirectory, "*", SearchOption.AllDirectories))
-                    {
-                        string dirToCreate = dir.Replace(sourceDirectory, destinationDirectory);
-                        Directory.CreateDirectory(dirToCreate);
-
-                        foreach (string file in Directory.GetFiles(dir))
-                        {
-                            string fileName = Path.GetFileName(file);
-                            string destFile = Path.Combine(dirToCreate, fileName);
-                            File.Copy(file, destFile, true);
-                        }
                     }
                 }
             }
