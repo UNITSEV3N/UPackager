@@ -225,6 +225,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.md" />
     <None Include="Resources\Icon_Default.png" />
   </ItemGroup>
   <ItemGroup>
