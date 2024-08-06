@@ -348,19 +348,19 @@
             // CB_AutoOpenStagingFolder
             // 
             this.CB_AutoOpenStagingFolder.AutoSize = true;
-            this.CB_AutoOpenStagingFolder.Location = new System.Drawing.Point(6, 63);
+            this.CB_AutoOpenStagingFolder.Location = new System.Drawing.Point(6, 40);
             this.CB_AutoOpenStagingFolder.Name = "CB_AutoOpenStagingFolder";
-            this.CB_AutoOpenStagingFolder.Size = new System.Drawing.Size(148, 17);
+            this.CB_AutoOpenStagingFolder.Size = new System.Drawing.Size(91, 17);
             this.CB_AutoOpenStagingFolder.TabIndex = 3;
             this.CB_AutoOpenStagingFolder.TabStop = false;
-            this.CB_AutoOpenStagingFolder.Text = "Auto Open Staging Folder";
+            this.CB_AutoOpenStagingFolder.Text = "Open Staging";
             this.CB_AutoOpenStagingFolder.UseVisualStyleBackColor = true;
             this.CB_AutoOpenStagingFolder.CheckedChanged += new System.EventHandler(this.CB_AutoOpenStagingFolder_CheckedChanged);
             // 
             // CB_CloseOnPack
             // 
             this.CB_CloseOnPack.AutoSize = true;
-            this.CB_CloseOnPack.Location = new System.Drawing.Point(6, 40);
+            this.CB_CloseOnPack.Location = new System.Drawing.Point(101, 40);
             this.CB_CloseOnPack.Name = "CB_CloseOnPack";
             this.CB_CloseOnPack.Size = new System.Drawing.Size(95, 17);
             this.CB_CloseOnPack.TabIndex = 2;
@@ -385,7 +385,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 566);
+            this.ClientSize = new System.Drawing.Size(656, 567);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.BTN_PACK);
             this.Controls.Add(this.groupBox3);
