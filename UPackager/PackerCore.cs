@@ -111,11 +111,11 @@ namespace UPackager
             }
         }
 
-        public void CopyFilesAndRootFolder(string sourceDirectory, string destinationDirectory)
+        public void CopyFilesAndRootFolder(string sourceDirectory, string destinationDirectory, bool CopyRoot)
         {
             try
             {
-                if (File.Exists(destinationDirectory))
+                if (CopyRoot)
                 {
                     // Create the destination directory if it doesn't exist
                     Directory.CreateDirectory(destinationDirectory);
@@ -134,8 +134,37 @@ namespace UPackager
                         string destFile = Path.Combine(destinationRoot, fileName);
                         File.Copy(file, destFile, true);
                     }
+                }
 
-                    Console.WriteLine("Files and root folder copied successfully.");
+                else
+                {
+                    if (!Directory.Exists(destinationDirectory))
+                    {
+                        // Create the destination directory if it doesn't exist
+                        Directory.CreateDirectory(destinationDirectory);
+                    }
+
+                    // Copy all files from the source to the destination folder
+                    foreach (string file in Directory.GetFiles(sourceDirectory))
+                    {
+                        string fileName = Path.GetFileName(file);
+                        string destFile = Path.Combine(destinationDirectory, fileName);
+                        File.Copy(file, destFile, true);
+                    }
+
+                    // Copy all subdirectories and their contents
+                    foreach (string dir in Directory.GetDirectories(sourceDirectory, "*", SearchOption.AllDirectories))
+                    {
+                        string dirToCreate = dir.Replace(sourceDirectory, destinationDirectory);
+                        Directory.CreateDirectory(dirToCreate);
+
+                        foreach (string file in Directory.GetFiles(dir))
+                        {
+                            string fileName = Path.GetFileName(file);
+                            string destFile = Path.Combine(dirToCreate, fileName);
+                            File.Copy(file, destFile, true);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -203,7 +232,7 @@ namespace UPackager
             {
                 string destinationFolder = $"{sourceDir}\\{PackName}\\ContentSettings\\Media";
 
-                if (File.Exists(destinationFolder))
+                if (!File.Exists(destinationFolder))
                 {
 
                     string IconName = new DirectoryInfo(destinationFolder).Name;

@@ -39,6 +39,8 @@ namespace UPackager
         private bool AutoClose = false;
         private bool OpenStagingFolder = false;
         private bool AlwayOnTop = false;
+        private bool CopyRoot = false;
+        private bool CloseOnPack = false;
 
         // ------------------------------------------------------------------------------ //
 
@@ -58,7 +60,7 @@ namespace UPackager
         {
             try
             {
-                if (!string.IsNullOrEmpty(EnginePath) ^ !string.IsNullOrEmpty(ContentPath))
+                if (!string.IsNullOrEmpty(EnginePath) && !string.IsNullOrEmpty(ContentPath))
                 {
                     // Set Values
                     EnginePath = TXTBOX_EnginePath.Text;
@@ -69,9 +71,13 @@ namespace UPackager
                     PackName = TXTBOX_PackName.Text;
                     CategoryName = TXTBOX_Category.Text;
 
-                    packerCore.GenerateStagingFiles(DesktopPath, PackName, PackVersion, PackDescription, PackAssetType, ClassTypes, CategoryName);
-                    // packerCore.GenerateBatchFiles(DesktopPath, EnginePath, PackName);
-                    packerCore.CopyFilesAndRootFolder(ContentPath, $"{DesktopPath}\\{PackName}\\Samples\\{PackName}\\Content\\{PackName}\\");
+                    packerCore.GenerateStagingFiles(DesktopPath, PackName, PackVersion, 
+                        PackDescription, PackAssetType, ClassTypes, CategoryName);
+                    packerCore.GenerateBatchFiles(DesktopPath, 
+                        EnginePath, PackName);
+                    packerCore.CopyFilesAndRootFolder(ContentPath, 
+                        $"{DesktopPath}\\{PackName}\\Samples\\{PackName}\\Content\\{PackName}\\", 
+                        CopyRoot);
 
                     packerCore.CopyImagesOver(DesktopPath, PackName, IconPath, PreviewPath);
 
@@ -79,12 +85,13 @@ namespace UPackager
                     {
                         BTN_PACK.Enabled = true;
                     }
-                }
 
-                else
-                {
-                    MessageBox.Show("Err");
+                    if (OpenStagingFolder)
+                    {
+                        Process.Start("explorer.exe", $"{DesktopPath}\\{PackName}\\");
+                    }
 
+                    TXTBOX_CMD.Text = "Copy Complete";
                 }
             }
 
@@ -188,6 +195,11 @@ namespace UPackager
         private async void BTN_PACK_Click(object sender, EventArgs e)
         {
             await packerCore.RunProcessAsync(TXTBOX_CMD, AutoClose, $"{DesktopPath}\\{PackName}\\", this);
+
+            if (CloseOnPack)
+            {
+                this.Close();
+            }
         }
 
         private void TXTBOX_EnginePath_TextChanged(object sender, EventArgs e)
@@ -198,16 +210,64 @@ namespace UPackager
 
         private void TXTBOX_ContentPath_TextChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Content = TXTBOX_ContentPath.Text;
-            Properties.Settings.Default.Save();
+            // Properties.Settings.Default.Content = TXTBOX_ContentPath.Text;
+            // Properties.Settings.Default.Save();
         }
 
         private void PackerForm_Load(object sender, EventArgs e)
         {
             TXTBOX_EnginePath.Text = Properties.Settings.Default.Engine;
-            TXTBOX_ContentPath.Text = Properties.Settings.Default.Content;
+            // TXTBOX_ContentPath.Text = Properties.Settings.Default.Content;
             EnginePath = Properties.Settings.Default.Engine;
-            ContentPath = Properties.Settings.Default.Content;
+            // ContentPath = Properties.Settings.Default.Content;
         }
+
+        private void CB_OnTop_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CB_OnTop.Checked == true)
+            {
+                this.TopMost = true;
+            }
+            else
+            {
+                this.TopMost = false;
+            }
+        }
+
+        private void CB_CopyRootFolder_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CB_CopyRootFolder.Checked == true)
+            {
+                CopyRoot = true;
+            }
+            else
+            {
+                CopyRoot = false;
+            }
+        }
+        private void CB_CloseOnPack_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CB_CloseOnPack.Checked == true)
+            {
+                CloseOnPack = true;
+            }
+            else
+            {
+                CloseOnPack = false;
+            }
+        }
+
+        private void CB_AutoOpenStagingFolder_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CB_AutoOpenStagingFolder.Checked == true)
+            {
+                OpenStagingFolder = true;
+            }
+            else
+            {
+                OpenStagingFolder = false;
+            }
+        }
+
     }
 }

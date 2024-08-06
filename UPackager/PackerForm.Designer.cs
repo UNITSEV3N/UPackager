@@ -46,50 +46,65 @@
             this.TXTBOX_CMD = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.BTN_PACK = new System.Windows.Forms.Button();
-            this.PICBOX_Icon = new System.Windows.Forms.PictureBox();
-            this.PICBOX_Preview = new System.Windows.Forms.PictureBox();
             this.BTN_FindContentPath = new System.Windows.Forms.Button();
             this.BTN_FindEnginePath = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.PICBOX_Icon = new System.Windows.Forms.PictureBox();
+            this.PICBOX_Preview = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.BTN_PACK = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.CB_AutoOpenStagingFolder = new System.Windows.Forms.CheckBox();
+            this.CB_CloseOnPack = new System.Windows.Forms.CheckBox();
+            this.CB_CopyRootFolder = new System.Windows.Forms.CheckBox();
+            this.CB_OnTop = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PICBOX_Icon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PICBOX_Preview)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // TXTBOX_PackName
             // 
+            this.TXTBOX_PackName.AcceptsReturn = true;
             this.TXTBOX_PackName.Location = new System.Drawing.Point(77, 13);
+            this.TXTBOX_PackName.MaxLength = 27;
             this.TXTBOX_PackName.Name = "TXTBOX_PackName";
             this.TXTBOX_PackName.Size = new System.Drawing.Size(284, 20);
             this.TXTBOX_PackName.TabIndex = 1;
+            this.TXTBOX_PackName.TabStop = false;
             // 
             // TXTBOX_Description
             // 
+            this.TXTBOX_Description.AcceptsReturn = true;
             this.TXTBOX_Description.Location = new System.Drawing.Point(77, 59);
             this.TXTBOX_Description.Multiline = true;
             this.TXTBOX_Description.Name = "TXTBOX_Description";
             this.TXTBOX_Description.Size = new System.Drawing.Size(332, 57);
-            this.TXTBOX_Description.TabIndex = 2;
+            this.TXTBOX_Description.TabIndex = 3;
+            this.TXTBOX_Description.TabStop = false;
             // 
             // TXTBOX_AssetTypes
             // 
+            this.TXTBOX_AssetTypes.AcceptsReturn = true;
             this.TXTBOX_AssetTypes.Location = new System.Drawing.Point(77, 119);
             this.TXTBOX_AssetTypes.Multiline = true;
             this.TXTBOX_AssetTypes.Name = "TXTBOX_AssetTypes";
             this.TXTBOX_AssetTypes.Size = new System.Drawing.Size(332, 57);
-            this.TXTBOX_AssetTypes.TabIndex = 0;
+            this.TXTBOX_AssetTypes.TabIndex = 4;
+            this.TXTBOX_AssetTypes.TabStop = false;
             // 
             // TXTBOX_Category
             // 
+            this.TXTBOX_Category.AcceptsReturn = true;
             this.TXTBOX_Category.Location = new System.Drawing.Point(77, 36);
             this.TXTBOX_Category.Name = "TXTBOX_Category";
             this.TXTBOX_Category.Size = new System.Drawing.Size(332, 20);
-            this.TXTBOX_Category.TabIndex = 3;
+            this.TXTBOX_Category.TabIndex = 2;
+            this.TXTBOX_Category.TabStop = false;
             // 
             // label1
             // 
@@ -129,10 +144,13 @@
             // 
             // TXTBOX_EnginePath
             // 
+            this.TXTBOX_EnginePath.AcceptsReturn = true;
+            this.TXTBOX_EnginePath.AllowDrop = true;
             this.TXTBOX_EnginePath.Location = new System.Drawing.Point(77, 13);
             this.TXTBOX_EnginePath.Name = "TXTBOX_EnginePath";
             this.TXTBOX_EnginePath.Size = new System.Drawing.Size(304, 20);
             this.TXTBOX_EnginePath.TabIndex = 8;
+            this.TXTBOX_EnginePath.TabStop = false;
             this.TXTBOX_EnginePath.TextChanged += new System.EventHandler(this.TXTBOX_EnginePath_TextChanged);
             // 
             // label5
@@ -146,10 +164,13 @@
             // 
             // TXTBOX_ContentPath
             // 
+            this.TXTBOX_ContentPath.AcceptsReturn = true;
+            this.TXTBOX_ContentPath.AllowDrop = true;
             this.TXTBOX_ContentPath.Location = new System.Drawing.Point(77, 42);
             this.TXTBOX_ContentPath.Name = "TXTBOX_ContentPath";
             this.TXTBOX_ContentPath.Size = new System.Drawing.Size(304, 20);
             this.TXTBOX_ContentPath.TabIndex = 10;
+            this.TXTBOX_ContentPath.TabStop = false;
             this.TXTBOX_ContentPath.TextChanged += new System.EventHandler(this.TXTBOX_ContentPath_TextChanged);
             // 
             // label6
@@ -163,10 +184,11 @@
             // 
             // BTN_Stage
             // 
-            this.BTN_Stage.Location = new System.Drawing.Point(77, 182);
+            this.BTN_Stage.Location = new System.Drawing.Point(12, 435);
             this.BTN_Stage.Name = "BTN_Stage";
-            this.BTN_Stage.Size = new System.Drawing.Size(332, 23);
+            this.BTN_Stage.Size = new System.Drawing.Size(420, 23);
             this.BTN_Stage.TabIndex = 12;
+            this.BTN_Stage.TabStop = false;
             this.BTN_Stage.Text = "STAGE";
             this.BTN_Stage.UseVisualStyleBackColor = true;
             this.BTN_Stage.Click += new System.EventHandler(this.BTN_Stage_Click);
@@ -177,6 +199,7 @@
             this.TXTBOX_Ver.Name = "TXTBOX_Ver";
             this.TXTBOX_Ver.Size = new System.Drawing.Size(42, 20);
             this.TXTBOX_Ver.TabIndex = 13;
+            this.TXTBOX_Ver.TabStop = false;
             this.TXTBOX_Ver.Text = "1";
             this.TXTBOX_Ver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -187,7 +210,8 @@
             this.TXTBOX_CMD.Name = "TXTBOX_CMD";
             this.TXTBOX_CMD.ReadOnly = true;
             this.TXTBOX_CMD.Size = new System.Drawing.Size(420, 65);
-            this.TXTBOX_CMD.TabIndex = 14;
+            this.TXTBOX_CMD.TabIndex = 100;
+            this.TXTBOX_CMD.TabStop = false;
             // 
             // groupBox1
             // 
@@ -197,13 +221,12 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.TXTBOX_Category);
             this.groupBox1.Controls.Add(this.TXTBOX_Description);
-            this.groupBox1.Controls.Add(this.BTN_Stage);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.TXTBOX_AssetTypes);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(12, 245);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(420, 213);
+            this.groupBox1.Size = new System.Drawing.Size(420, 183);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
@@ -220,6 +243,30 @@
             this.groupBox2.Size = new System.Drawing.Size(420, 75);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
+            // 
+            // BTN_FindContentPath
+            // 
+            this.BTN_FindContentPath.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_FindContentPath.BackgroundImage")));
+            this.BTN_FindContentPath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_FindContentPath.Location = new System.Drawing.Point(387, 40);
+            this.BTN_FindContentPath.Name = "BTN_FindContentPath";
+            this.BTN_FindContentPath.Size = new System.Drawing.Size(27, 23);
+            this.BTN_FindContentPath.TabIndex = 11;
+            this.BTN_FindContentPath.TabStop = false;
+            this.BTN_FindContentPath.UseVisualStyleBackColor = true;
+            this.BTN_FindContentPath.Click += new System.EventHandler(this.BTN_FindContentPath_Click);
+            // 
+            // BTN_FindEnginePath
+            // 
+            this.BTN_FindEnginePath.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_FindEnginePath.BackgroundImage")));
+            this.BTN_FindEnginePath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BTN_FindEnginePath.Location = new System.Drawing.Point(387, 11);
+            this.BTN_FindEnginePath.Name = "BTN_FindEnginePath";
+            this.BTN_FindEnginePath.Size = new System.Drawing.Size(27, 23);
+            this.BTN_FindEnginePath.TabIndex = 9;
+            this.BTN_FindEnginePath.TabStop = false;
+            this.BTN_FindEnginePath.UseVisualStyleBackColor = true;
+            this.BTN_FindEnginePath.Click += new System.EventHandler(this.BTN_FindEnginePath_Click);
             // 
             // groupBox3
             // 
@@ -241,25 +288,6 @@
             this.label8.Size = new System.Drawing.Size(109, 13);
             this.label8.TabIndex = 23;
             this.label8.Text = "PREVIEW 400 X 200";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 13);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "ICON 64 X 64";
-            // 
-            // BTN_PACK
-            // 
-            this.BTN_PACK.Location = new System.Drawing.Point(12, 464);
-            this.BTN_PACK.Name = "BTN_PACK";
-            this.BTN_PACK.Size = new System.Drawing.Size(420, 23);
-            this.BTN_PACK.TabIndex = 14;
-            this.BTN_PACK.Text = "PACK";
-            this.BTN_PACK.UseVisualStyleBackColor = true;
-            this.BTN_PACK.Click += new System.EventHandler(this.BTN_PACK_Click);
             // 
             // PICBOX_Icon
             // 
@@ -287,41 +315,101 @@
             this.PICBOX_Preview.TabStop = false;
             this.PICBOX_Preview.Click += new System.EventHandler(this.PICBOX_Preview_Click);
             // 
-            // BTN_FindContentPath
+            // label7
             // 
-            this.BTN_FindContentPath.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_FindContentPath.BackgroundImage")));
-            this.BTN_FindContentPath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BTN_FindContentPath.Location = new System.Drawing.Point(387, 40);
-            this.BTN_FindContentPath.Name = "BTN_FindContentPath";
-            this.BTN_FindContentPath.Size = new System.Drawing.Size(27, 23);
-            this.BTN_FindContentPath.TabIndex = 16;
-            this.BTN_FindContentPath.UseVisualStyleBackColor = true;
-            this.BTN_FindContentPath.Click += new System.EventHandler(this.BTN_FindContentPath_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 13);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "ICON 64 X 64";
             // 
-            // BTN_FindEnginePath
+            // BTN_PACK
             // 
-            this.BTN_FindEnginePath.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BTN_FindEnginePath.BackgroundImage")));
-            this.BTN_FindEnginePath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BTN_FindEnginePath.Location = new System.Drawing.Point(387, 11);
-            this.BTN_FindEnginePath.Name = "BTN_FindEnginePath";
-            this.BTN_FindEnginePath.Size = new System.Drawing.Size(27, 23);
-            this.BTN_FindEnginePath.TabIndex = 15;
-            this.BTN_FindEnginePath.UseVisualStyleBackColor = true;
-            this.BTN_FindEnginePath.Click += new System.EventHandler(this.BTN_FindEnginePath_Click);
+            this.BTN_PACK.Location = new System.Drawing.Point(12, 464);
+            this.BTN_PACK.Name = "BTN_PACK";
+            this.BTN_PACK.Size = new System.Drawing.Size(420, 23);
+            this.BTN_PACK.TabIndex = 14;
+            this.BTN_PACK.Text = "PACK";
+            this.BTN_PACK.UseVisualStyleBackColor = true;
+            this.BTN_PACK.Click += new System.EventHandler(this.BTN_PACK_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.CB_AutoOpenStagingFolder);
+            this.groupBox4.Controls.Add(this.CB_CloseOnPack);
+            this.groupBox4.Controls.Add(this.CB_CopyRootFolder);
+            this.groupBox4.Controls.Add(this.CB_OnTop);
+            this.groupBox4.Location = new System.Drawing.Point(439, 12);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(202, 546);
+            this.groupBox4.TabIndex = 101;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Settings";
+            // 
+            // CB_AutoOpenStagingFolder
+            // 
+            this.CB_AutoOpenStagingFolder.AutoSize = true;
+            this.CB_AutoOpenStagingFolder.Location = new System.Drawing.Point(6, 86);
+            this.CB_AutoOpenStagingFolder.Name = "CB_AutoOpenStagingFolder";
+            this.CB_AutoOpenStagingFolder.Size = new System.Drawing.Size(148, 17);
+            this.CB_AutoOpenStagingFolder.TabIndex = 3;
+            this.CB_AutoOpenStagingFolder.TabStop = false;
+            this.CB_AutoOpenStagingFolder.Text = "Auto Open Staging Folder";
+            this.CB_AutoOpenStagingFolder.UseVisualStyleBackColor = true;
+            this.CB_AutoOpenStagingFolder.CheckedChanged += new System.EventHandler(this.CB_AutoOpenStagingFolder_CheckedChanged);
+            // 
+            // CB_CloseOnPack
+            // 
+            this.CB_CloseOnPack.AutoSize = true;
+            this.CB_CloseOnPack.Location = new System.Drawing.Point(6, 63);
+            this.CB_CloseOnPack.Name = "CB_CloseOnPack";
+            this.CB_CloseOnPack.Size = new System.Drawing.Size(95, 17);
+            this.CB_CloseOnPack.TabIndex = 2;
+            this.CB_CloseOnPack.TabStop = false;
+            this.CB_CloseOnPack.Text = "Close on Pack";
+            this.CB_CloseOnPack.UseVisualStyleBackColor = true;
+            this.CB_CloseOnPack.CheckedChanged += new System.EventHandler(this.CB_CloseOnPack_CheckedChanged);
+            // 
+            // CB_CopyRootFolder
+            // 
+            this.CB_CopyRootFolder.AutoSize = true;
+            this.CB_CopyRootFolder.Location = new System.Drawing.Point(6, 40);
+            this.CB_CopyRootFolder.Name = "CB_CopyRootFolder";
+            this.CB_CopyRootFolder.Size = new System.Drawing.Size(148, 17);
+            this.CB_CopyRootFolder.TabIndex = 1;
+            this.CB_CopyRootFolder.TabStop = false;
+            this.CB_CopyRootFolder.Text = "Copy Root Content Folder";
+            this.CB_CopyRootFolder.UseVisualStyleBackColor = true;
+            this.CB_CopyRootFolder.CheckedChanged += new System.EventHandler(this.CB_CopyRootFolder_CheckedChanged);
+            // 
+            // CB_OnTop
+            // 
+            this.CB_OnTop.AutoSize = true;
+            this.CB_OnTop.Location = new System.Drawing.Point(6, 19);
+            this.CB_OnTop.Name = "CB_OnTop";
+            this.CB_OnTop.Size = new System.Drawing.Size(62, 17);
+            this.CB_OnTop.TabIndex = 0;
+            this.CB_OnTop.TabStop = false;
+            this.CB_OnTop.Text = "On Top";
+            this.CB_OnTop.UseVisualStyleBackColor = true;
+            this.CB_OnTop.CheckedChanged += new System.EventHandler(this.CB_OnTop_CheckedChanged);
             // 
             // PackerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 566);
+            this.ClientSize = new System.Drawing.Size(653, 566);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.BTN_PACK);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.TXTBOX_CMD);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.BTN_Stage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PackerForm";
-            this.Text = "UPackager V1";
+            this.Text = "UPackager";
             this.Load += new System.EventHandler(this.PackerForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -331,6 +419,8 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PICBOX_Icon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PICBOX_Preview)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,6 +452,11 @@
         private System.Windows.Forms.Button BTN_PACK;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.CheckBox CB_OnTop;
+        private System.Windows.Forms.CheckBox CB_CopyRootFolder;
+        private System.Windows.Forms.CheckBox CB_CloseOnPack;
+        private System.Windows.Forms.CheckBox CB_AutoOpenStagingFolder;
     }
 }
 
